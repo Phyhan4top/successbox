@@ -2,56 +2,95 @@ const carousel = document.getElementById("carousel");
 const container = document.getElementById("carousel-container");
 const prevBtn = document.getElementById("prev");
 const nextBtn = document.getElementById("next");
+
+// Original card data
+const cardData = [
+  {
+    icon: "computer.svg",
+    title: "BECE Past Questions",
+    text: "Access to over 15 years Past Questions to prepare for your BECE Exam.",
+  },
+  {
+    icon: "open-book.svg",
+    title: "SSCE Past Questions",
+    text: "Comprehensive SSCE past questions and solutions.",
+  },
+  {
+    icon: "computer.svg",
+    title: "Mathematics Guides",
+    text: "Step-by-step solutions to math problems.",
+  },
+  {
+    icon: "computer.svg",
+    title: "Science Materials",
+    text: "Boost your science knowledge with expert guides.",
+  },
+];
+
+function createCard(icon, title, text) {
+  const card = document.createElement("div");
+  card.className =
+    "card flex-shrink-0 mx-2 p-4 bg-white text-[#003f7d] rounded-lg text-center transition-all duration-300 scale-90 opacity-50";
+  card.innerHTML = `
+    <div class="icon-container mx-auto mb-4 bg-[#fd7702] w-24 h-24 rounded-full flex items-center justify-center">
+      <img src="./assests/icons/${icon}" alt="" />
+    </div>
+    <h2 class="font-bold text-2xl">${title}</h2>
+    <p class="text-[20px] mt-2">${text}</p>
+  `;
+  return card;
+}
+
+// Populate the carousel with original + cloned elements
+const originalCards = cardData.map((data) =>
+  createCard(data.icon, data.title, data.text)
+);
+originalCards.forEach((card) => carousel.appendChild(card.cloneNode(true)));
+
+// Clone first and last two for smooth looping
+carousel.prepend(originalCards[originalCards.length - 2].cloneNode(true));
+carousel.prepend(originalCards[originalCards.length - 1].cloneNode(true));
+carousel.appendChild(originalCards[0].cloneNode(true));
+carousel.appendChild(originalCards[1].cloneNode(true));
+
+// Get all cards after cloning
 let cards = document.querySelectorAll("#carousel .card");
 
-const cardWidth = cards[0].offsetWidth + 16; // Includes margin
-const visibleCards = 2; // Number of active cards in the center
-const totalCards = cards.length;
+let index = 2; // Start index (accounting for clones)
+let cardWidth = cards[0].offsetWidth + 16; // Includes margin
+let isMobile = window.innerWidth < 768;
+let visibleCards = isMobile ? 1 : 2; // 1 on mobile, 2 on desktop
 
-// Clone two first and last elements for smooth looping
-const firstClone1 = cards[0].cloneNode(true);
-const firstClone2 = cards[1].cloneNode(true);
-const lastClone1 = cards[totalCards - 1].cloneNode(true);
-const lastClone2 = cards[totalCards - 2].cloneNode(true);
-
-carousel.appendChild(firstClone1);
-carousel.appendChild(firstClone2);
-carousel.insertBefore(lastClone1, cards[0]);
-carousel.insertBefore(lastClone2, cards[0]);
-
-// Update the card list after cloning
-cards = document.querySelectorAll("#carousel .card");
-
-// Set initial position to center the first two real cards
-let index = 2;
+// Set initial position
 let position = -index * cardWidth;
 carousel.style.transform = `translateX(${position}px)`;
 
+// Function to update active cards
 function updateActiveCards() {
   cards.forEach((card, i) => {
     card.classList.remove("scale-100", "opacity-100", "active-card");
     card.classList.add("scale-90", "opacity-50");
 
-    // Activate only the two center cards
-    if (i === index || i === index + 1) {
+    if (i === index || (visibleCards === 2 && i === index + 1)) {
       card.classList.add("scale-100", "opacity-100", "active-card");
     }
   });
 }
 
+// Function to move next
 function nextSlide() {
-  if (index >= totalCards) {
+  if (index >= cards.length - visibleCards) {
     return;
   }
-  index++;
-  position -= cardWidth;
+  index += visibleCards;
+  position -= cardWidth * visibleCards;
   carousel.style.transition = "transform 0.3s ease-in-out";
   carousel.style.transform = `translateX(${position}px)`;
 
   updateActiveCards();
 
   // Reset to loop seamlessly
-  if (index >= totalCards - visibleCards) {
+  if (index >= cards.length - visibleCards - 1) {
     setTimeout(() => {
       carousel.style.transition = "none";
       index = 2;
@@ -62,12 +101,13 @@ function nextSlide() {
   }
 }
 
+// Function to move previous
 function prevSlide() {
-  if (index <= 0) {
+  if (index <= 1) {
     return;
   }
-  index--;
-  position += cardWidth;
+  index -= visibleCards;
+  position += cardWidth * visibleCards;
   carousel.style.transition = "transform 0.3s ease-in-out";
   carousel.style.transform = `translateX(${position}px)`;
 
@@ -77,7 +117,7 @@ function prevSlide() {
   if (index <= 1) {
     setTimeout(() => {
       carousel.style.transition = "none";
-      index = totalCards - 3;
+      index = cards.length - visibleCards - 3;
       position = -index * cardWidth;
       carousel.style.transform = `translateX(${position}px)`;
       updateActiveCards();
@@ -85,7 +125,20 @@ function prevSlide() {
   }
 }
 
+// Event listeners
 nextBtn.addEventListener("click", nextSlide);
 prevBtn.addEventListener("click", prevSlide);
 
-updateActiveCards(); // Set initial active state
+// Handle resizing for responsiveness
+window.addEventListener("resize", () => {
+  isMobile = window.innerWidth < 768;
+  visibleCards = isMobile ? 1 : 2;
+  cardWidth = cards[0].offsetWidth + 16;
+  index = 2;
+  position = -index * cardWidth;
+  carousel.style.transform = `translateX(${position}px)`;
+  updateActiveCards();
+});
+
+// Initialize active cards
+updateActiveCards();
