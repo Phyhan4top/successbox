@@ -1,0 +1,182 @@
+* {
+  box-sizing: border-box;
+}
+
+.body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+
+.navbutton {
+  font-family: Poppins;
+  font-size: 20px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.27;
+  letter-spacing: 1.2px;
+  text-align: center;
+  color: #121010;
+}
+
+.navbutton:hover {
+  color: #fd7702;
+}
+
+
+
+.cta div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  flex-grow: 0;
+  font-family: Montserrat;
+  font-size: 90.2px;
+  font-weight: 800;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  flex-wrap: wrap;
+  color: #003f7d;
+}
+
+.form-input {
+  height: 50px;
+  flex-grow: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 10px 10px 19px;
+  border-radius: 7px;
+  background-color: #fff;
+  box-shadow: 0 2px 15px 0 rgba(18, 16, 16, 0.1);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 23px;
+  margin: 28px 0 20px;
+  padding: 0;
+}
+
+.card {
+  width: 400px;
+  height: 390.2px;
+  flex-grow: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 6.1px;
+  padding: 0;
+  border-radius: 40.9px;
+  border: solid 0.9px #fff;
+  background-color: #fff;
+}
+
+@keyframes scroll-vertical {
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+#scrollText {
+  display: flex;
+  gap: 2rem;
+  animation: scroll-vertical 5s linear infinite;
+}
+
+#modal {
+  position: fixed;
+  z-index: 500;
+  background-color: white;
+  width: 70%;
+  border: 1px solid #ccc;
+  box-shadow: 1px 1px 1px black;
+  padding: 16px;
+  left: 15%;
+  top: 20%;
+  box-sizing: border-box;
+  transition: all 0.3s ease-out;
+}
+
+
+/* Modal Overlay Styles */
+#modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Semi-transparent black */
+  z-index: 400;
+  /* Behind the modal */
+  /* Hide initially */
+}
+
+/* Button for closing the modal */
+#closeModal {
+  background: none;
+  border: none;
+  color: #333;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* Card styling: fixed width and base (non-active) state */
+#carousel .card {
+  /* width: 300px; */
+  margin-right: 20px;
+  opacity: 0.6;
+  transform: scale(0.9);
+  transition: all 0.3s ease;
+}
+
+/* Active cards: full opacity and scale */
+#carousel .card.active-card {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Optional: icon container adjustments for active cards */
+#carousel .card.active-card .icon-container {
+  width: 6rem;
+  height: 6rem;
+}
+
+/* Chevron styling */
+.chevron {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 20;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 2.5rem;
+  color: white;
+}
+
+/* Positioning each chevron */
+#prev {
+  left: 0;
+}
+
+#next {
+  right: 0;
+}
