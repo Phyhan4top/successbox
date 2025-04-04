@@ -333,8 +333,13 @@
     <!-- overlay -->
     <div id="modalOverlay" class="hidden"></div>
     <!-- modal -->
-    <div id="modal" class="hidden rounded-xl">
-      <div class="bg-white md:p-8 p-3 rounded-lg relative">
+    <div
+      id="modal"
+      class="hidden rounded-xl text-center flex justify-center items-center"
+    >
+      <div
+        class="bg-white md:p-8 p-4 rounded-xl relative w-full max-h-[90vh] overflow-y-auto"
+      >
         <!-- Close Button -->
         <button
           id="closeModal"
@@ -344,7 +349,7 @@
         </button>
 
         <div
-          class="flex justify-center items-center flex-col md:gap-10 text-[#003f7d] mt-2"
+          class="flex justify-center items-center flex-col md:gap-10 text-[#003f7d] mt-2 w-full"
         >
           <h1 class="text-6xl font-poppins tracking-wide font-medium">
             Fill Form
