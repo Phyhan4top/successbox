@@ -13,7 +13,7 @@
     <title>SuccessBox</title>
   </head>
   <body>
-    <header class="flex justify-between p-[30px]">
+    <header class="flex flex-col md:flex-row justify-between md:p-[30px] p-5">
       <a href="#"
         ><img
           src="./assests//icons/New-SuccessBOX-Logo 1.svg"
@@ -21,9 +21,9 @@
           alt="logo"
       /></a>
 
-      <nav>
+      <nav class="">
         <ul
-          class="flex items-center justify-start gap-[24px] uppercase p-[10px]"
+          class="flex items-center justify-start md:gap-[24px] gap-5 uppercase md:p-[10px] py-5"
         >
           <li class="navbutton"><a href="#">Home</a></li>
           <li class="navbutton">
@@ -58,7 +58,9 @@
         class="absolute top-[90%] left-[10%]"
       />
       <div>
-        <div class="cta flex flex-col items-start justify-center">
+        <div
+          class="cta flex flex-col items-start justify-center lg:text-[90px] text-[70px] lg:font-extrabold font-bold"
+        >
           <div>
             <span class="text-[#fd7702]">Start your</span>
             <span>1-Month</span>
@@ -352,7 +354,7 @@
             Fill this form to complete your download.
           </p>
           <form id="downloadForm" class="space-y-4 form w-full">
-            <div class="flex justify-between w-full gap-20">
+            <div class="flex justify-between w-full gap-10">
               <input
                 class="form-input w-1/2"
                 id="firstName"
@@ -366,7 +368,7 @@
                 placeholder="Enter your last name"
               />
             </div>
-            <div class="flex justify-between w-full gap-20">
+            <div class="flex justify-between w-full gap-10">
               <input
                 class="form-input w-1/2"
                 id="firstName"
@@ -380,7 +382,7 @@
                 placeholder="Enter your last name"
               />
             </div>
-            <div class="flex justify-between w-full gap-20">
+            <div class="flex justify-between w-full gap-10">
               <input
                 class="form-input w-1/2"
                 id="firstName"
@@ -445,7 +447,7 @@
       class="flex flex-col justify-center items-center gap-15 p-6"
     >
       <h1
-        class="text-5xl font-montserrat text-center font-extrabold text-[#fd7702]"
+        class="lg:text-5xl text-3xl font-montserrat text-center font-extrabold text-[#fd7702]"
       >
         A Digital Learning Device
       </h1>
@@ -478,16 +480,18 @@
         </div>
       </div>
     </section>
+
+    <!-- footer -->
     <footer
-      class="bg-black p-15 flex text-white flex-col items-center items-center"
+      class="bg-black lg:p-15 py-5 flex text-white flex-col md:items-center items-start"
     >
       <div
-        class="p-30 flex flex-col items-center lg:flex-row gap-40 text-white justify-center"
+        class="lg:p-20 p-5 flex flex-col items-center lg:flex-row lg:gap-40 gap-10 text-white justify-center"
       >
-        <div class="relative lg:self-end p-3">
+        <div class="flex flex-col items-center lg:relative lg:self-end p-3">
           <img src="/assests/icons/logo `white.svg" alt="" />
           <p
-            class="text-xs font-poppins tracking-wide text-center top-20 left-33 absolute"
+            class="text-xs font-poppins tracking-wide text-center lg:top-20 lg:left-33 lg:absolute"
           >
             Prepare For Excellence
           </p>
@@ -500,7 +504,9 @@
                 19 Joel Ogunnaike, off Isaac John St, Ikeja GRA, Lagos, Nigeria.
               </p>
             </div>
-            <div class="flex gap-15 items-center">
+            <div
+              class="flex flex-col items-start lg:flex-row gap-15 items-center"
+            >
               <div class="flex gap-3 justify-start items-center">
                 <img src="./assests/icons/round-phone-24px.svg" alt="" />
                 <p class="text-sm font-poppins uppercase">
@@ -515,16 +521,18 @@
               </div>
             </div>
           </div>
-          <div class="flex gap-5 justify-start items-center">
+          <div class="flex gap-5 flex-col items-start md:flex-row">
             <p class="font-assistant">Social Media</p>
-            <img src="./assests/icons/facebook black.1.svg" alt="" />
-            <img src="./assests/icons/googleplus black.1.svg" alt="" />
-            <img src="./assests/icons/Instagram.svg" alt="" />
-            <img src="./assests/icons/LinkedIn.svg" alt="" />
-            <img src="./assests/icons/pinterest color.1.svg" alt="" />
-            <img src="./assests/icons/RSS.svg" alt="" />
-            <img src="./assests/icons/Twitter.svg" alt="" />
-            <img src="./assests/icons/Youtube.svg" alt="" />
+            <div class="flex gap-5 justify-start items-center flex-wrap">
+              <img src="./assests/icons/facebook black.1.svg" alt="" />
+              <img src="./assests/icons/googleplus black.1.svg" alt="" />
+              <img src="./assests/icons/Instagram.svg" alt="" />
+              <img src="./assests/icons/LinkedIn.svg" alt="" />
+              <img src="./assests/icons/pinterest color.1.svg" alt="" />
+              <img src="./assests/icons/RSS.svg" alt="" />
+              <img src="./assests/icons/Twitter.svg" alt="" />
+              <img src="./assests/icons/Youtube.svg" alt="" />
+            </div>
           </div>
         </div>
       </div>
