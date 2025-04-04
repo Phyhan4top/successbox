@@ -185,6 +185,7 @@
   background-color: #5b5b5b;
   position: relative;
   transition: transform 0.3s ease;
+  cursor: pointer;
 }
 
 .hambugger div::before,
