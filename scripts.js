@@ -1,48 +1,80 @@
 const downloadBtns = document.querySelectorAll(".download");
-const downloadJnr = document.querySelector(".uppercase .jnr");
-const downloadSnr = document.querySelector(".snr");
-const about = document.querySelector(".about");
+const jnrNav = document.querySelectorAll(".jnr");
+const snrNav = document.querySelectorAll(".snr");
+const homeNav = document.querySelectorAll(".navbutton a");
+const aboutNav = document.querySelectorAll(".about");
 const closeModalBtn = document.getElementById("closeModal");
 const downloadForm = document.querySelector(".about");
 const modal = document.getElementById("modal");
 const modalOverlay = document.getElementById("modalOverlay");
+const navMenu = document.getElementById("nav-menu");
+const hambugger = document.querySelector(".hambugger");
+const sideBar = document.querySelector("aside");
 
-document.addEventListener("DOMContentLoaded", () => {
-  downloadBtns.forEach((downloadBtn) => {
-    downloadBtn.addEventListener("click", () => {
-      console.log("Download Button clicked");
-      modal.classList.remove("hidden");
-      modalOverlay.classList.remove("hidden");
-    });
+downloadBtns.forEach((downloadBtn) => {
+  downloadBtn.addEventListener("click", () => {
+    console.log("Download Button clicked");
+    modal.classList.remove("hidden");
+    modalOverlay.classList.remove("hidden");
   });
+});
 
-  // Close Modal
-  closeModalBtn.addEventListener("click", () => {
-    modal.classList.add("hidden");
-    modalOverlay.classList.add("hidden");
-  });
-  // Optionally, handle form submission
-  downloadForm.addEventListener("submit", (event) => {
-    event.preventDefault();
-    // You can handle the form submission logic here
-    alert("Form submitted!");
+// Close Modal
+closeModalBtn.addEventListener("click", () => {
+  modal.classList.add("hidden");
+  modalOverlay.classList.add("hidden");
+});
+// Optionally, handle form submission
+downloadForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  // You can handle the form submission logic here
+  alert("Form submitted!");
 
-    // Optionally close the modal after form submission
-    modal.classList.add("hidden");
-    modalOverlay.classList.add("hidden");
+  // Optionally close the modal after form submission
+  modal.classList.add("hidden");
+  modalOverlay.classList.add("hidden");
+});
+
+homeNav.forEach((el) => {
+  el.addEventListener("click", (e) => {
+    if (sideBar || hambugger) {
+      sideBar.classList.add("hidden"); // Show/Hide menu
+      hambugger.classList.remove("active");
+    }
   });
-  downloadJnr.addEventListener("click", (e) => {
-    console.log("JNR Button clicked");
+});
+jnrNav.forEach((el) => {
+  el.addEventListener("click", (e) => {
+    if (sideBar || hambugger) {
+      sideBar.classList.add("hidden"); // Show/Hide menu
+      hambugger.classList.remove("active");
+    }
+
     document.getElementById("jnr").scrollIntoView({ behavior: "smooth" });
   });
+});
+snrNav.forEach((el) => {
+  el.addEventListener("click", (e) => {
+    if (sideBar || hambugger) {
+      sideBar.classList.add("hidden"); // Show/Hide menu
+      hambugger.classList.remove("active");
+    }
 
-  downloadSnr.addEventListener("click", (e) => {
-    console.log("Snr Button clicked");
     document.getElementById("snr").scrollIntoView({ behavior: "smooth" });
   });
+});
+aboutNav.forEach((el) => {
+  el.addEventListener("click", (e) => {
+    if (sideBar || hambugger) {
+      sideBar.classList.add("hidden"); // Show/Hide menu
+      hambugger.classList.remove("active");
+    }
 
-  about.addEventListener("click", (e) => {
-    console.log("About Button clicked");
     document.getElementById("about").scrollIntoView({ behavior: "smooth" });
   });
+});
+
+hambugger.addEventListener("click", (e) => {
+  hambugger.classList.toggle("active");
+  sideBar.classList.toggle("hidden");
 });
