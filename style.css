@@ -60,7 +60,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 23px;
   margin: 28px 0 20px;
   padding: 0;
 }
@@ -107,7 +106,7 @@
   box-shadow: 1px 1px 1px black;
   padding: 16px;
   left: 15%;
-  top: 20%;
+  top: 10%;
   box-sizing: border-box;
   transition: all 0.3s ease-out;
 }

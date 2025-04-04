@@ -25,7 +25,7 @@
         <ul
           class="flex items-center justify-start md:gap-[24px] gap-5 uppercase md:p-[10px] py-5"
         >
-          <li class="navbutton"><a href="#">Home</a></li>
+          <li class="navbutton hidden md:block"><a href="#">Home</a></li>
           <li class="navbutton">
             <button class="uppercase jnr">junior</button>
           </li>
@@ -345,7 +345,7 @@
         </button>
 
         <div
-          class="flex justify-center items-center flex-col gap-10 text-[#003f7d]"
+          class="flex justify-center items-center flex-col md:gap-10 text-[#003f7d]"
         >
           <h1 class="text-6xl font-poppins tracking-wide font-medium">
             Fill Form
@@ -353,44 +353,50 @@
           <p class="text-xl font-poppins tracking-wide">
             Fill this form to complete your download.
           </p>
-          <form id="downloadForm" class="space-y-4 form w-full">
-            <div class="flex justify-between w-full gap-10">
+          <form id="downloadForm" class="md:space-y-4 form w-full gap-5">
+            <div
+              class="flex flex-col md:flex-row justify-between w-full md:gap-10 gap-5"
+            >
               <input
-                class="form-input w-1/2"
+                class="form-input w-full"
                 id="firstName"
                 type="text"
                 placeholder="Enter your first name"
               />
               <input
-                class="form-input w-1/2"
+                class="form-input w-full"
                 id="lastName"
                 type="text"
                 placeholder="Enter your last name"
               />
             </div>
-            <div class="flex justify-between w-full gap-10">
+            <div
+              class="flex flex-col md:flex-row justify-between w-full md:gap-10 gap-5"
+            >
               <input
-                class="form-input w-1/2"
+                class="form-input w-full"
                 id="firstName"
                 type="text"
                 placeholder="Enter your first name"
               />
               <input
-                class="form-input w-1/2"
+                class="form-input w-full"
                 id="lastName"
                 type="text"
                 placeholder="Enter your last name"
               />
             </div>
-            <div class="flex justify-between w-full gap-10">
+            <div
+              class="flex flex-col md:flex-row justify-between w-full md:gap-10 gap-5"
+            >
               <input
-                class="form-input w-1/2"
+                class="form-input w-full"
                 id="firstName"
                 type="text"
                 placeholder="Enter your first name"
               />
               <input
-                class="form-input w-1/2"
+                class="form-input w-full"
                 id="lastName"
                 type="text"
                 placeholder="Enter your last name"
