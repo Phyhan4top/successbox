@@ -302,17 +302,17 @@
     <div id="modalOverlay" class="hidden"></div>
     <!-- modal -->
     <div id="modal" class="hidden rounded-xl">
-      <div class="bg-white p-8 rounded-lg">
+      <div class="bg-white md:p-8 p-3 rounded-lg relative">
         <!-- Close Button -->
         <button
           id="closeModal"
-          class="absolute top-4 right-4 hover:text-black w-16 h-16 flex items-center justify-center"
+          class="absolute top-4 right-1 hover:text-black w-16 h-16 flex items-center justify-center"
         >
           <img src="./assests/icons/close-circle.svg" alt="modal-close" />
         </button>
 
         <div
-          class="flex justify-center items-center flex-col md:gap-10 text-[#003f7d]"
+          class="flex justify-center items-center flex-col md:gap-10 text-[#003f7d] mt-2"
         >
           <h1 class="text-6xl font-poppins tracking-wide font-medium">
             Fill Form
@@ -344,13 +344,13 @@
                 class="form-input w-full"
                 id="firstName"
                 type="text"
-                placeholder="Enter your first name"
+                placeholder="Enter Email Address "
               />
               <input
                 class="form-input w-full"
                 id="lastName"
                 type="text"
-                placeholder="Enter your last name"
+                placeholder="Name of School"
               />
             </div>
             <div
@@ -360,19 +360,19 @@
                 class="form-input w-full"
                 id="firstName"
                 type="text"
-                placeholder="Enter your first name"
+                placeholder="Phone Number"
               />
               <input
                 class="form-input w-full"
                 id="lastName"
                 type="text"
-                placeholder="Enter your last name"
+                placeholder="Location"
               />
             </div>
 
             <button
               type="submit"
-              class="text-[#003f7d] hover:bg-[#003f7d] hover:text-[#fff] flex gap-[38px] border-b-[3.4px] rounded-[7px] p-5 items-center transition ease-in duration-400"
+              class="text-[#003f7d] hover:bg-[#003f7d] hover:text-[#fff] flex gap-[38px] border-b-[3.4px] rounded-[7px] md:p-5 p-2.5 items-center transition ease-in duration-400"
             >
               <p
                 class="text-2xl font-poppins leading-tight text-center tracking-wide font-medium"
