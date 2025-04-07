@@ -136,8 +136,7 @@
 
 /* Card styling: fixed width and base (non-active) state */
 #carousel .card {
-  /* width: 300px; */
-  margin-right: 20px;
+  /* margin-right: 20px; */
   opacity: 0.6;
   transform: scale(0.9);
   transition: all 0.3s ease;
