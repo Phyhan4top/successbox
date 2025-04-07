@@ -35,46 +35,27 @@ downloadForm.addEventListener("submit", (event) => {
   modalOverlay.classList.add("hidden");
 });
 
-homeNav.forEach((el) => {
-  el.addEventListener("click", (e) => {
-    if (sideBar || hambugger) {
-      sideBar.classList.add("hidden"); // Show/Hide menu
-      hambugger.classList.remove("active");
-    }
-  });
-});
-jnrNav.forEach((el) => {
-  el.addEventListener("click", (e) => {
-    if (sideBar || hambugger) {
-      sideBar.classList.add("hidden"); // Show/Hide menu
-      hambugger.classList.remove("active");
-    }
-
-    document.getElementById("jnr").scrollIntoView({ behavior: "smooth" });
-  });
-});
-snrNav.forEach((el) => {
-  el.addEventListener("click", (e) => {
-    if (sideBar || hambugger) {
-      sideBar.classList.add("hidden"); // Show/Hide menu
-      hambugger.classList.remove("active");
-    }
-
-    document.getElementById("snr").scrollIntoView({ behavior: "smooth" });
-  });
-});
-aboutNav.forEach((el) => {
-  el.addEventListener("click", (e) => {
-    if (sideBar || hambugger) {
-      sideBar.classList.add("hidden"); // Show/Hide menu
-      hambugger.classList.remove("active");
-    }
-
-    document.getElementById("about").scrollIntoView({ behavior: "smooth" });
-  });
-});
+scrollBtn(homeNav);
+scrollBtn(jnrNav, "jnr");
+scrollBtn(snrNav, "snr");
+scrollBtn(aboutNav, "about");
 
 hambugger.addEventListener("click", (e) => {
   hambugger.classList.toggle("active");
   sideBar.classList.toggle("hidden");
 });
+
+function scrollBtn(elements, targetId) {
+  elements.forEach((el) => {
+    el.addEventListener("click", (e) => {
+      if (sideBar || hambugger) {
+        sideBar.classList.add("hidden"); // Show/Hide menu
+        hambugger.classList.remove("active");
+      }
+      if (targetId)
+        document
+          .getElementById(targetId)
+          .scrollIntoView({ behavior: "smooth" });
+    });
+  });
+}

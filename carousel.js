@@ -7,23 +7,23 @@ const nextBtn = document.getElementById("next");
 const cardData = [
   {
     icon: "computer.svg",
-    title: "BECE Past Questions",
-    text: "Access to over 15 years Past Questions to prepare for your BECE Exam.",
+    title: "UTME WAEC Past Questions",
+    text: "Solve Past Question from WAEC and UTME  in preparation for your exams.",
   },
   {
     icon: "open-book.svg",
-    title: "SSCE Past Questions",
-    text: "Comprehensive SSCE past questions and solutions.",
+    title: "IGCSE Master Prep.",
+    text: "Prepare adequately for IGCSE exams .",
   },
   {
     icon: "computer.svg",
-    title: "Mathematics Guides",
-    text: "Step-by-step solutions to math problems.",
+    title: "E-Reader",
+    text: "With Access to our E-Reader make reading easier.",
   },
   {
-    icon: "computer.svg",
-    title: "Science Materials",
-    text: "Boost your science knowledge with expert guides.",
+    icon: "open-book.svg",
+    title: "Smart Reader Senior",
+    text: "Download our SS Reader and get all your textbooks on  your device.",
   },
 ];
 
